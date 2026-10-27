@@ -14,11 +14,8 @@ folder where the game is installed.
 2. Click **Kies de cd-map… / Choose the CD folder…** and choose the folder of your Amsterdoom CD,
    or the folder the game is installed in. The page finds the game in it by itself, so the CD
    drive itself is fine (it looks for `Adamwin.ini`, which on the CD is in `Target Files`).
-   - The files are read into this browser's own storage (IndexedDB). **They are not uploaded or
-     sent anywhere.** Reading in takes from a few seconds to about a minute (around 220 MB).
-   - Optional: add **Times New Roman** (`times.ttf`, found in `C:\Windows\Fonts` on Windows) for
-     a few texts in the game ("please wait", the pause screen). Without it those texts use the
-     menu's own font.
+    - The files are read into this browser's own storage (IndexedDB). **They are not uploaded or
+      sent anywhere.** Reading in takes from a few seconds to about a minute (around 220 MB).
 3. Click **Klik om te spelen** to start. Browsers only allow sound after a click.
 
 On later visits the game starts straight away; the files are still in the browser. Saved players
@@ -31,13 +28,6 @@ The game is in Dutch.
 
 The page has to come from a web server. Browsers do not run it when you open `index.html`
 directly from disk (it stays on "Laden…").
-
-### Online (GitHub Pages)
-
-The repository can be served as is with GitHub Pages: in the repository's **Settings → Pages**,
-choose **Deploy from a branch**, branch `main`, folder `/ (root)`. The game is then at
-`https://<user>.github.io/amsterdoom-web-port/`. Any other static web hosting works as well; the
-server only has to send `.wasm` files as `application/wasm`, as current servers do.
 
 ### On your own computer
 
@@ -54,12 +44,12 @@ up) and opens the game in your default browser. Nothing needs to be installed.
   Perl (`serve.pl`), or Python 3 when Perl is missing. Press Ctrl+C to stop.
 - **By hand**, with any static web server, for example:
 
-  ```sh
-  cd amsterdoom-web-port
-  python3 -m http.server 8123 --bind 127.0.0.1
-  ```
+    ```sh
+    cd amsterdoom-web-port
+    python3 -m http.server 8123 --bind 127.0.0.1
+    ```
 
-  Then open <http://127.0.0.1:8123/>. If the port is taken, use another number, such as 8124.
+    Then open <http://127.0.0.1:8123/>. If the port is taken, use another number, such as 8124.
 
 Note that the browser keeps the imported files and saved players per address. Each address
 (for example `127.0.0.1:8123` versus `127.0.0.1:8124`, or the online page) asks for the CD once
@@ -75,37 +65,7 @@ controller needed).
 
 The original defaults; change them in the menu under **Opties → Besturing**.
 
-| Action | Keyboard and mouse |
-|---|---|
-| Walk forward / back | ↑ / ↓ |
-| Step left / right | ← / → |
-| Turn left / right | Shift + ← / → |
-| Look around | mouse (click into the game to capture it) |
-| Fire | Ctrl or left mouse button |
-| Jump | Space |
-| Choose a weapon | 1–5 (next: Insert or middle mouse button, previous: Shift+7) |
-| Look up / down / centre | A / Z / Shift+6 |
-| Pause | P |
-| Back to the menu | Esc (also releases the mouse) |
-
-**Game controller** (Xbox and compatible; press a button once so the page notices it). The
-original game had no controller support; its buttons can be changed on the same Besturing
-screen.
-
-| Action | Controller |
-|---|---|
-| Walk / step | left stick |
-| Turn / look | right stick |
-| Fire | RT |
-| Walk slowly | hold LT |
-| Jump | A |
-| Previous / next weapon | LB / RB |
-| Weapon 1–4 | D-pad ↑ → ↓ ← |
-| Centre the view | click the right stick |
-| Pause | Start |
-| Back to the menu | B or Back/View |
-
-In the menus: arrow keys or D-pad to move, Enter or A to press, Escape or B to go back.
+**Game controller** (Xbox, PS5 and compatible; press a button once so the page notices it).
 
 Add `?nointro` to the page's address to skip the intro film.
 
@@ -121,21 +81,12 @@ Add `?nointro` to the page's address to skip the intro film.
 - **No sound**: click into the page once; browsers only start sound after a click.
 - **The mouse does not turn**: click into the game. Esc releases the mouse again.
 
-## What is in here
-
-| File | What |
-|---|---|
-| `index.html` | the page: the import of your game files and the start |
-| `Amsterdoom.js`, `Amsterdoom.wasm` | the game program (WebAssembly) |
-| `Start Amsterdoom.bat` | local starter for Windows |
-| `Start Amsterdoom.command`, `start-amsterdoom.sh` | local starters for Mac and Linux |
-| `serve.pl` | the small local web server the Mac and Linux starters use |
-| `LICENSE-Genesis3D.txt` | the license of the 3D engine |
-
 ## Legal
 
 Amsterdoom, its name, levels, graphics, sounds, music and film are the property of their rights
 holders. This repository contains none of them; you need your own copy of the game to play.
 
 The engine is **Genesis3D 1.0** (Genesis3D Public License, see `LICENSE-Genesis3D.txt`). Also
-used: **SDL2** (zlib license), **pl_mpeg** (MIT license) and **stb_truetype** (public domain).
+used: **SDL2** (zlib license), **pl_mpeg** (MIT license), **stb_truetype** (MIT license or public
+domain) and **Emscripten** with its **musl** C library (MIT license). Their license texts are in
+`THIRD-PARTY-LICENSES.txt`.
