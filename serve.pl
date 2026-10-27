@@ -49,9 +49,12 @@ while (1) {
 	if (!defined $pid || $pid) { close $c; next; }
 	close $server;
 	binmode $c;
+	# a connection that sends no (complete) request within 30 seconds is closed
+	alarm 30;
 	my $line = <$c>;
 	exit 0 unless defined $line;
 	while (my $h = <$c>) { last if $h =~ /^\r?\n$/; }
+	alarm 0;
 	my ($method, $path) = $line =~ m{^(GET|HEAD) (\S+)};
 	if (!$method) { reply($c, '405 Method Not Allowed', 'text/plain', "405\n"); exit 0; }
 	$path =~ s/[?#].*//;
