@@ -3,6 +3,11 @@
 Play **Amsterdoom** (the Dutch first-person shooter from 2000, set in Amsterdam) in a modern web
 browser.
 
+<p>
+  <img src="screenshots/screen1.png" alt="Amsterdoom in the browser: a brick cellar with crates of explosives" width="49%">
+  <img src="screenshots/screen2.png" alt="Amsterdoom in the browser: an Amsterdam street with a van, a car and containers" width="49%">
+</p>
+
 This repository contains only the **port**: the game program rebuilt for the browser
 (WebAssembly and WebGL2). It contains **none of the game's files** (levels, graphics, sounds,
 music, the intro film). To play, you need **your own copy of Amsterdoom**: the original CD, or a
