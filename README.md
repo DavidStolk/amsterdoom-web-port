@@ -41,15 +41,18 @@ server only has to send `.wasm` files as `application/wasm`, as current servers 
 
 ### On your own computer
 
-Download the repository (**Code → Download ZIP**, then unpack it, or `git clone` it), then:
+Download the repository (**Code → Download ZIP**, then unpack it, or `git clone` it). Each
+starter runs a small web server that only this computer can reach (127.0.0.1, from port 8123
+up) and opens the game in your default browser. Nothing needs to be installed.
 
-- **Mac:** double-click **Start Amsterdoom.command**. It starts a small local web server and
-  opens the game in your browser. Close its Terminal window to stop. The first time, macOS may
-  refuse to open it: right-click it, choose **Open**, then **Open** again.
-- **Windows:** double-click **Start Amsterdoom.bat**. It uses only Windows' own PowerShell, so
-  there is nothing to install. Close its window to stop. If Windows warns about a downloaded
-  file: **More info → Run anyway**.
-- **Anything else with Python 3:**
+- **Windows:** double-click **Start Amsterdoom.bat**. It uses Windows' own PowerShell. Close its
+  window to stop. If Windows warns about a downloaded file: **More info → Run anyway**.
+- **Mac:** double-click **Start Amsterdoom.command**. It uses the Perl that comes with macOS
+  (`serve.pl`). Close its Terminal window to stop. The first time, macOS may refuse to open it:
+  right-click it, choose **Open**, then **Open** again.
+- **Linux:** run `./start-amsterdoom.sh` in a terminal (or let your file manager run it). It uses
+  Perl (`serve.pl`), or Python 3 when Perl is missing. Press Ctrl+C to stop.
+- **By hand**, with any static web server, for example:
 
   ```sh
   cd amsterdoom-web-port
@@ -124,7 +127,9 @@ Add `?nointro` to the page's address to skip the intro film.
 |---|---|
 | `index.html` | the page: the import of your game files and the start |
 | `Amsterdoom.js`, `Amsterdoom.wasm` | the game program (WebAssembly) |
-| `Start Amsterdoom.command`, `Start Amsterdoom.bat` | local starters for Mac and Windows |
+| `Start Amsterdoom.bat` | local starter for Windows |
+| `Start Amsterdoom.command`, `start-amsterdoom.sh` | local starters for Mac and Linux |
+| `serve.pl` | the small local web server the Mac and Linux starters use |
 | `LICENSE-Genesis3D.txt` | the license of the 3D engine |
 
 ## Legal

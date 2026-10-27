@@ -1,2 +1,5 @@
 *.bat -text
 *.wasm binary
+*.sh text eol=lf
+*.pl text eol=lf
+*.command text eol=lf
